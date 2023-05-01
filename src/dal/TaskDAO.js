@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Task = require('../model/Task');
 
 
-async function doConnect() [
+async function doConnect() {
     mongoose.connect('mongodb+srv://fornitejimmy23:bigcappy23@cockster0.dg3xywk.mongodb.net',
     {
         useNewUrlParser: true,
@@ -10,7 +10,7 @@ async function doConnect() [
     })
     .then(() => console.log('Connected to MongoDB Database'))
     .catch((err) => console.log(err));
-]
+}
 
 async function addTask(task) {
     const newTask = new Task(task);
@@ -21,6 +21,8 @@ async function addTask(task) {
 async function getTasks() {
     return await Task.find([]);
 }
+
+async
 
 //what is this
 async function updateTask(task, ) {
