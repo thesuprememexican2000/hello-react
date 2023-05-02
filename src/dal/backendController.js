@@ -6,13 +6,14 @@ async function main() {
     console.log("Running backend controller main script: " + time);
     TaskDAO.doConnect();
 
-    await TaskDAO.addTask({title: 'Task 1', description: 'Description 1', status: 'In Progress'});
 
     const tasks = await TaskDAO.getTasks();
     console.log(tasks);
 
     const found = await TaskDAO.getTaskByTitle("Task 1");
     console.log("Task found by name: " + found);
+
+    await TaskDAO.deleteTask(found);
 
     
 };
