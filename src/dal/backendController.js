@@ -11,7 +11,7 @@ async function main() {
     const tasks = await TaskDAO.getTasks();
     console.log(tasks);
 
-    const found = await TaskDAO.getTaskByName('Task 1');
+    const found = await TaskDAO.getTaskByTitle("Task 1");
     console.log("Task found by name: " + found);
 
     

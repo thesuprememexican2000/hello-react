@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Task = require('../model/Task');
+const async = require('async');
 
 
 async function doConnect() {
@@ -19,10 +20,12 @@ async function addTask(task) {
 }
 
 async function getTasks() {
-    return await Task.find([]);
+    return await Task.find({});
 }
 
-async
+async function getTaskByTitle(title) {
+    return await Task.findOne({title: title});
+}
 
 //what is this
 async function updateTask(task, ) {
@@ -37,6 +40,7 @@ async function deleteTask(task) {
 
 module.exports = {
     doConnect : doConnect,
+    getTaskByTitle : getTaskByTitle,
      addTask : addTask,
      getTasks : getTasks,
      updateTask : updateTask,
