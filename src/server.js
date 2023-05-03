@@ -17,12 +17,19 @@ const taskSchema = new mongoose.Schema({title: String, description: String, stat
 
 const Task = mongoose.model('Task',taskSchema)
 
-app.get('/tasks', async (req,res) => {
+app.get('/getTask', async (req,res) => {
     const tasks = await Task.find({})
     res.json(tasks)
     console.log(res)
 })
 
+app.post('/postTask', async (req,res) => {
+    const {title, description, status} = req.body
+    const newTask = new Task({title, description, status})
+    await newTask.save()
+    res.status(201).json(newTask)
+})
+
 app.listen(3001, () => {
-    console.log('Server listening on port 3000')
+    console.log('Server listening on port 3001')
 })

@@ -4,7 +4,7 @@ function GetTask() {
     const [data, setData] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:3001/tasks')
+        fetch('http://localhost:3001/getTask')
             .then((response) => response.json())
             .then((tasks) => setData(tasks))
             .catch((error) => console.log(error))
@@ -15,7 +15,11 @@ function GetTask() {
             <h1>Liste des tâches</h1>
             <ul>
                 {data.map(task => (
-                    <li key={task._id}>{task.title}</li>
+                    <li key={task._id}>
+                        Titre: {task.title} <br/>
+                        Description: {task.description} <br/>
+                        Status: {task.status}
+                    </li>
                 ))}
             </ul>
             
