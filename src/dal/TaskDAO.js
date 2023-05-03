@@ -1,8 +1,6 @@
 const mongoose = require('mongoose');
 const Task = require('../model/Task');
 
-
-
 async function doConnect() {
     mongoose.connect('mongodb+srv://fornitejimmy23:bigcappy23@cockster0.dg3xywk.mongodb.net',
     {
@@ -45,4 +43,4 @@ module.exports = {
      getTasks : getTasks,
      updateTask : updateTask,
      deleteTask, deleteTask,
-    };
+};
