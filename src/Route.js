@@ -27,6 +27,9 @@ function Home() {
     return (
         <div>
             <h1>Application de liste des tâches</h1>
+            <p>App in progress...</p>
         </div>
     )
 }
+
+export default RouteComponent
