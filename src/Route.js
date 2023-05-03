@@ -14,11 +14,13 @@ const RouteComponent = () => (
         </ul>
     </nav>
     <Routes>
-        <Route exact path="/"       element={<Home/>}/>
-        <Route path="/create_task"  element={<CreateTask/>}/>
-        <Route path='/get_task'     element={<GetTask/>}/>
-        <Route path='/delete_task'  element={<DeleteTask/>}/>
-        <Route path='/update_task'  element={<UpdateTask/>}/>
+        <Route exact path="/"               element={<Home/>}/>
+        <Route path="/create_task"          element={<CreateTask/>}/>
+        <Route path='/get_task'             element={<GetTask/>}/>
+        <Route path='/get_task/delete'      element={<Delete/>}/>
+        <Route path='/get_task/delete/:id'  element={<DeleteTask/>}/>
+        <Route path='/get_task/update'      element={<Update/>}/>
+        <Route path='/get_task/update/:id'  element={<UpdateTask/>}/>
     </Routes>
     </>
 )
@@ -28,6 +30,24 @@ function Home() {
         <div>
             <h1>Application de liste des tâches</h1>
             <p>App in progress...</p>
+        </div>
+    )
+}
+
+function Update(){
+    return(
+        <div>
+            <h1>Attention</h1>
+            <p>Vous devez selectionner une tâche pour la mettre à jour</p>
+        </div>
+    )
+}
+
+function Delete(){
+    return(
+        <div>
+            <h1>Attention</h1>
+            <p>Vous devez selectionner une tâche pour la supprimer</p>
         </div>
     )
 }
