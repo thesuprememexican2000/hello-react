@@ -1,6 +1,10 @@
 import React from 'react';
 import { useParams } from 'react-router';
 
+
+//ON PEUT SIMPLEMENT FAIRE ÇA DANS LE GETTASK.JS SANS CONFIRMATION
+
+
 const DeleteTask = () => {
     const task = useParams()
     return(

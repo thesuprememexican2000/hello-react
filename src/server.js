@@ -30,8 +30,11 @@ app.post('/postTask', async (req,res) => {
     res.status(201).json(newTask)
 })
 
-app.put('/updateTask:id', function(req, res) {
-    Task.findByIdAndUpdate(req.params.id, req.body)
+app.put('/updateTask', function(req, res) {
+    const {title, description, status} = req.body
+    console.log('Try to update : '+ title)
+
+    Task.findByIdAndUpdate(req.body.id, req.body)
 });
 
 app.delete('/deleteTask', function(req, res) {

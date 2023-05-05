@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
 
 function UpdateTask() {
     const params = useParams()
+    let navigate = useNavigate(); 
 
     const [_title,setTitle] = useState(params.title)
     const [_description,setDescription] = useState(params.desc)
     const [_status,setStatus] = useState(params.status)
 
-    
-
     const handleSubmit = (event) => {
         event.preventDefault()
 
         try {
-            const response = axios.put(`http://localhost:3001/updateTask/${params.id}`, {title:_title,description:_description,status:_status})
+            const response = axios.put(`http://localhost:3001/updateTask`, {'title':_title,'description':_description,'status':_status})
             console.log(`Data modified with title: ${response.data}`)
+            navigate('/get_task')
         } catch (error) {
             console.log(error)
         }

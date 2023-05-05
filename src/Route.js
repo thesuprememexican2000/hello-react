@@ -18,7 +18,7 @@ const RouteComponent = () => (
         <Route path="/create_task"                  element={<CreateTask/>}/>
         <Route path='/get_task'                     element={<GetTask/>}/>
         <Route path='/get_task/delete'              element={<Delete/>}/>
-        <Route path='/get_task/delete/:id/'         element={<DeleteTask/>}/>
+        <Route path='/get_task/delete/:id/:title'         element={<DeleteTask/>}/>
         <Route path='/get_task/update'              element={<Update/>}/>
         <Route path='/get_task/update/:id/:title/:desc/:status'    element={<UpdateTask/>}/>
     </Routes>

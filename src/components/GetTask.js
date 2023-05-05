@@ -1,5 +1,6 @@
 import React, {useState,useEffect} from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import { Link, /*useNavigate*/ } from "react-router-dom";
+import axios from 'axios';
 
 
 function GetTask() {
@@ -21,8 +22,12 @@ function GetTask() {
     const updateTask = (id,title,desc,status) => {
         return `/get_task/update/${id}/${title}/${desc}/${status}`
     }
-    const deleteTask = (id) => {
-        return `/get_task/delete/${id}`
+    const deleteTask = (id) => {/*
+        try {
+            const response = axios.delete(`http://localhost:3001/deleteTask`)
+        } catch (error) {
+            console.log(error)
+        }*/
     }
 
     return(
@@ -36,7 +41,7 @@ function GetTask() {
                         Description: {task.description} <br/>
                         Status: {task.status} <br/>
                         <button><Link to={updateTask(task._id,task.title,task.description,task.status)}>Modifier</Link></button>
-                        <button><Link to={deleteTask(task._id)}>Supprimer</Link></button>
+                        <button onClick={deleteTask(task._id)}>Supprimer</button>
                     </li>
                     </div>
                 ))}
