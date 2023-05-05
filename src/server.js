@@ -30,6 +30,14 @@ app.post('/postTask', async (req,res) => {
     res.status(201).json(newTask)
 })
 
+app.put('/updateTask:id', function(req, res) {
+    Task.findByIdAndUpdate(req.params.id, req.body)
+});
+
+app.delete('/deleteTask', function(req, res) {
+    Task.findByIdAndDelete((req.body.id))
+})
+
 app.listen(3001, () => {
     console.log('Server listening on port 3001')
 })
