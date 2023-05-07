@@ -22,12 +22,12 @@ function GetTask() {
     const updateTask = (id,title,desc,status) => {
         return `/get_task/update/${id}/${title}/${desc}/${status}`
     }
-    const deleteTask = (id) => {/*
+    const deleteTask = (id) => {
         try {
             const response = axios.delete(`http://localhost:3001/deleteTask`)
         } catch (error) {
             console.log(error)
-        }*/
+        }
     }
 
     return(

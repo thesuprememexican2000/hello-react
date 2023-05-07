@@ -38,7 +38,8 @@ app.put('/updateTask', function(req, res) {
 });
 
 app.delete('/deleteTask', function(req, res) {
-    Task.findByIdAndDelete((req.body.id))
+    Task.deleteOne((req.body.id))
+    console.log('Item deleted')
 })
 
 app.listen(3001, () => {
