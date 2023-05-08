@@ -2,11 +2,12 @@ import { Routes,Route, Link } from "react-router-dom";
 import CreateTask from "./components/CreateTask";
 import GetTask from "./components/GetTask";
 import UpdateTask from "./components/UpdateTask";
+import './css/style.css'
 
 const RouteComponent = () => (
     <>
     <nav>
-        <ul>
+        <ul id="menu">
             <li><Link to="/">Accueil</Link></li>
             <li><Link to="/create_task">Créer une tâche</Link></li>
             <li><Link to="/get_task">Afficher les tâches</Link></li>
@@ -26,7 +27,7 @@ function Home() {
     return (
         <div>
             <h1>Application de liste des tâches</h1>
-            <p>App in progress...</p>
+            <p>Bienvenue</p>
         </div>
     )
 }
