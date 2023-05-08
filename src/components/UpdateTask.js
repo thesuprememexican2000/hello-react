@@ -32,7 +32,7 @@ function UpdateTask() {
     return(
         <div>
             <h1>Modifier la tâche {params.title}</h1>
-            <form onSubmit={handleSubmit}>
+            <form id='info' onSubmit={handleSubmit}>
                 <label>
                     Titre:
                     <input type='text' value={_title} onChange={(e) => setTitle(e.target.value)} />

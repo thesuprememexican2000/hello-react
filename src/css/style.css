@@ -1,11 +1,48 @@
 ul#menu li {
     display:inline;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding: 5px;
+    border-left: 1px;
+    border-color: blue;
+    border-style: double;
+    
+}
+
+#menu {
+    background-color:cadetblue; 
+    width: fit-content;
+    padding: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 1px;
+    margin-left: 20px;
+}
+
+#task {
+    list-style: none;
+}
+
+ul#task li {
+    margin-bottom: 14px;
+    color: coral;
 }
 
 div {
-    padding-left: 30px;
+    padding-left: 10px;
+    zoom: 1.2;
+}
+
+button {
+    color: antiquewhite;
+    background-color: gray;
+    margin: 7px;
+}
+
+#delete {
+    background-color:crimson;
+}
+
+#modify {
+    background-color:darkmagenta ;
 }
 
 body {
@@ -16,6 +53,25 @@ h1 {
     color: cornflowerblue;
 }
 
-input {
-    padding-left: 5px;
+form#info label {
+    color: rgb(43, 43, 43);
+    margin-bottom: 7px;
+    display:inline-block
+}
+
+#info {
+    width: 270px;
+    padding: 7px;
+}
+
+form#info input {
+    display: block;
+    padding: 5px;
+}
+
+form#info button {
+    margin-top: 7px;
+    margin-left: 30px;
+    color: antiquewhite;
+    background-color: gray;
 }

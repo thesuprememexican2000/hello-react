@@ -35,15 +35,15 @@ function GetTask() {
     return(
         <div>
             <h1>Liste des tâches</h1>
-            <ul>
+            <ul id='task'>
                 {data.map(task => (
                     <div>
                         <li key={task._id}>
                         Titre: {task.title} <br/>
                         Description: {task.description} <br/>
                         Status: {task.status} <br/>
-                        <button onClick={() => routeChange(task._id, task.title, task.description, task.status)}>Modifier</button>
-                        <button onClick={() => deleteTask(task._id)}>Supprimer</button>
+                        <button id='modify' onClick={() => routeChange(task._id, task.title, task.description, task.status)}>Modifier</button>
+                        <button id='delete' onClick={() => deleteTask(task._id)}>Supprimer</button>
                     </li>
                     </div>
                 ))}
