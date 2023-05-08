@@ -30,17 +30,23 @@ app.post('/postTask', async (req,res) => {
     res.status(201).json(newTask)
 })
 
-app.put('/updateTask', function(req, res) {
+//update task
+app.put('/updateTask/:id/:title/:desc/:status', async (req,res) => {
+    const {id} = req.params
     const {title, description, status} = req.body
-    console.log('Try to update : '+ title)
-
-    Task.findByIdAndUpdate(req.body.id, req.body)
-});
-
-app.delete('/deleteTask', function(req, res) {
-    Task.deleteOne((req.body.id))
-    console.log('Item deleted')
+    const updateTask = {title, description, status}
+    await Task.updateOne({_id: id}, updateTask)
+    res.status(200).json({message: 'Task updated'})
 })
+
+
+//delete task
+app.delete('/deleteTask/:id', async (req,res) => {
+    const id= req.params._id
+    await Task.deleteOne({_id: id})
+    res.status(200).json({message: 'Task deleted'})
+})
+
 
 app.listen(3001, () => {
     console.log('Server listening on port 3001')
