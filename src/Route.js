@@ -1,7 +1,6 @@
 import { Routes,Route, Link } from "react-router-dom";
 import CreateTask from "./components/CreateTask";
 import GetTask from "./components/GetTask";
-import DeleteTask from "./components/DeleteTask";
 import UpdateTask from "./components/UpdateTask";
 
 const RouteComponent = () => (
@@ -17,8 +16,6 @@ const RouteComponent = () => (
         <Route exact path="/"                       element={<Home/>}/>
         <Route path="/create_task"                  element={<CreateTask/>}/>
         <Route path='/get_task'                     element={<GetTask/>}/>
-        <Route path='/get_task/delete'              element={<Delete/>}/>
-        <Route path='/get_task/delete/:id/:title'         element={<DeleteTask/>}/>
         <Route path='/get_task/update'              element={<Update/>}/>
         <Route path='/get_task/update/:id/:title/:desc/:status'    element={<UpdateTask/>}/>
     </Routes>
@@ -43,13 +40,5 @@ function Update(){
     )
 }
 
-function Delete(){
-    return(
-        <div>
-            <h1>Attention</h1>
-            <p>Vous devez selectionner une tâche pour la supprimer</p>
-        </div>
-    )
-}
 
 export default RouteComponent

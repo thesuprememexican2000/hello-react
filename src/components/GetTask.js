@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react';
-import { Link, /*useNavigate*/ } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 
@@ -14,21 +14,23 @@ function GetTask() {
     }, [])
 
     //REDIRIGE AUTOMATIQUEMENT ???
-    /*let navigate = useNavigate(); 
-    const routeChange = (id) =>    { 
-        let path = `/get_task/update/${id}`
+    let navigate = useNavigate(); 
+    const routeChange = (id, title, desc, status) =>    { 
+        let path = `/get_task/update/${id}/${title}/${desc}/${status}`
         navigate(path);
-    }*/
+    }
     const updateTask = (id,title,desc,status) => {
         return `/get_task/update/${id}/${title}/${desc}/${status}`
     }
-    const deleteTask = (id) => {
+    const deleteTask = async (id) => {
         try {
-            const response = axios.delete(`http://localhost:3001/deleteTask`)
+          const response = await axios.delete(`http://localhost:3001/deleteTask/${id}`);
+          console.log("Task deleted: " + id);
+          window.location.reload();
         } catch (error) {
-            console.log(error)
+          console.log(error);
         }
-    }
+      }
 
     return(
         <div>
@@ -40,8 +42,8 @@ function GetTask() {
                         Titre: {task.title} <br/>
                         Description: {task.description} <br/>
                         Status: {task.status} <br/>
-                        <button><Link to={updateTask(task._id,task.title,task.description,task.status)}>Modifier</Link></button>
-                        <button onClick={deleteTask(task._id)}>Supprimer</button>
+                        <button onClick={() => routeChange(task._id, task.title, task.description, task.status)}>Modifier</button>
+                        <button onClick={() => deleteTask(task._id)}>Supprimer</button>
                     </li>
                     </div>
                 ))}

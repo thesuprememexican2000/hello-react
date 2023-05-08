@@ -10,18 +10,24 @@ function UpdateTask() {
     const [_title,setTitle] = useState(params.title)
     const [_description,setDescription] = useState(params.desc)
     const [_status,setStatus] = useState(params.status)
+    const [_id,setId] = useState(params.id)
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+      
         try {
-            const response = axios.put(`http://localhost:3001/updateTask`, {'title':_title,'description':_description,'status':_status})
-            console.log(`Data modified with title: ${response.data}`)
-            navigate('/get_task')
+          const response = await axios.put(`http://localhost:3001/updateTask`, {
+            _id: _id,
+            title: _title,
+            description: _description,
+            status: _status
+          });
+          console.log(`Data modified successfully with ID: ${_id}`);
+          navigate('/get_task');
         } catch (error) {
-            console.log(error)
+          console.log(error);
         }
-    }
+      }
 
     return(
         <div>
