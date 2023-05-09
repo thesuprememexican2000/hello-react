@@ -30,7 +30,7 @@ app.post('/postTask', async (req,res) => {
     res.status(201).json(newTask)
 })
 
-//update task
+
 app.put('/updateTask/:id/:title/:desc/:status', async (req,res) => {
     const {id} = req.params
     const {title, description, status} = req.body
@@ -40,10 +40,10 @@ app.put('/updateTask/:id/:title/:desc/:status', async (req,res) => {
 })
 
 
-//delete task
+
 app.delete('/deleteTask/:id', async (req,res) => {
-    const id= req.params._id
-    await Task.deleteOne({_id: id})
+    const id= req.params.id
+    await Task.findByIdAndDelete(id)
     res.status(200).json({message: 'Task deleted'})
 })
 
