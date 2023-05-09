@@ -31,11 +31,11 @@ app.post('/postTask', async (req,res) => {
 })
 
 
-app.put('/updateTask/:id/:title/:desc/:status', async (req,res) => {
-    const {id} = req.params
+app.put('/updateTask', async (req,res) => {
+    const id = req.body.id
     const {title, description, status} = req.body
     const updateTask = {title, description, status}
-    await Task.updateOne({_id: id}, updateTask)
+    await Task.findByIdAndUpdate(id, updateTask)
     res.status(200).json({message: 'Task updated'})
 })
 

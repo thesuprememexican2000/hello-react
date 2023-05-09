@@ -10,14 +10,14 @@ function UpdateTask() {
     const [_title,setTitle] = useState(params.title)
     const [_description,setDescription] = useState(params.desc)
     const [_status,setStatus] = useState(params.status)
-    const [_id,setId] = useState(params.id)
+    const [_id] = useState(params.id)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
       
         try {
           const response = await axios.put(`http://localhost:3001/updateTask`, {
-            _id: _id,
+            id: _id,
             title: _title,
             description: _description,
             status: _status
