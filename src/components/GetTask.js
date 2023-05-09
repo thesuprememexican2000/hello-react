@@ -19,9 +19,7 @@ function GetTask() {
         let path = `/get_task/update/${id}/${title}/${desc}/${status}`
         navigate(path);
     }
-    const updateTask = (id,title,desc,status) => {
-        return `/get_task/update/${id}/${title}/${desc}/${status}`
-    }
+    
     const deleteTask = async (id) => {
         try {
           const response = await axios.delete(`http://localhost:3001/deleteTask/${id}`);
